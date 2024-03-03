@@ -9,7 +9,7 @@ using BookStore.Models;
 
 namespace BookStore.Models.DataManager
 {
-    public class AuthorDataManager : IDataRepository<Author, AuthorDto, Author_CustomModel>
+    public class AuthorDataManager : IDataRepository<Author, AuthorDto>
     {
         readonly BookStoreContext _bookStoreContext;
 
@@ -60,7 +60,7 @@ namespace BookStore.Models.DataManager
             _bookStoreContext.SaveChanges();
         }
 
-        public void Update(Author entityToUpdate, Author_CustomModel entity)
+        public void Update(Author entityToUpdate, Author entity)
         {
             entityToUpdate = _bookStoreContext.Author
                 .Include(a => a.BookAuthors)
@@ -72,18 +72,18 @@ namespace BookStore.Models.DataManager
             entityToUpdate.AuthorContact.Address = entity.AuthorContact.Address;
             entityToUpdate.AuthorContact.ContactNumber = entity.AuthorContact.ContactNumber;
 
-            // var deletedBooks = entityToUpdate.BookAuthors.Except(entity.BookAuthors).ToList();
-            // var addedBooks = entity.BookAuthors.Except(entityToUpdate.BookAuthors).ToList();
+            var deletedBooks = entityToUpdate.BookAuthors.Except(entity.BookAuthors).ToList();
+            var addedBooks = entity.BookAuthors.Except(entityToUpdate.BookAuthors).ToList();
 
-            // deletedBooks.ForEach(bookToDelete =>
-            //     entityToUpdate.BookAuthors.Remove(
-            //         entityToUpdate.BookAuthors
-            //             .First(b => b.BookId == bookToDelete.BookId)));
+            deletedBooks.ForEach(bookToDelete =>
+                entityToUpdate.BookAuthors.Remove(
+                    entityToUpdate.BookAuthors
+                        .First(b => b.BookId == bookToDelete.BookId)));
 
-            // foreach (var addedBook in addedBooks)
-            // {
-            //     _bookStoreContext.Entry(addedBook).State = EntityState.Added;
-            // }
+            foreach (var addedBook in addedBooks)
+            {
+                _bookStoreContext.Entry(addedBook).State = EntityState.Added;
+            }
 
             _bookStoreContext.SaveChanges();
         }

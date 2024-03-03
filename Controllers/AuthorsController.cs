@@ -9,9 +9,9 @@ namespace BookStore.Controllers
     [ApiController]
     public class AuthorsController : ControllerBase
     {
-        private readonly IDataRepository<Author, AuthorDto ,Author_CustomModel> _dataRepository;
+        private readonly IDataRepository<Author, AuthorDto> _dataRepository;
 
-        public AuthorsController(IDataRepository<Author, AuthorDto,Author_CustomModel> dataRepository)
+        public AuthorsController(IDataRepository<Author, AuthorDto> dataRepository)
         {
             _dataRepository = dataRepository;
         }
@@ -69,40 +69,45 @@ namespace BookStore.Controllers
         // PUT: api/Authors/5
         [HttpPut("{id}")]
         //   public IActionResult Put(int id, [FromBody] Author author)
+        // [FromBody] Author_CustomModel author
         // 
-        public IActionResult Put(int id,[FromBody] Author_CustomModel author)
+        public IActionResult Put( int id,[FromBody] Author_CustomModel authors)
         {
-            // int id = 5;
-            // Author_CustomModel author = new Author_CustomModel();
-            // author.id = 5;
-            // author.Name = "Saurabh@1234";
-            // author.AuthorContact = new AuthorContact
-            // {
-            //     AuthorId = 5,
-            //     ContactNumber = "9076578103",
-            //     Address = "Jainagar Post Gaura Jainagar Deoria"
-            // };
+                Console.WriteLine($"Author Id: {authors}");
+                Console.WriteLine($"Author Id: {id}");
 
-            // author.BookAuthors = new List<BookAuthor>
-            // {
-            //     new BookAuthor
-            //     {
-            //         AuthorId = 5,
-            //         BookId = 5
-            //     },
-            //     new BookAuthor
-            //     {
-            //         AuthorId = 6,
-            //         BookId = 5
-            //     }
-            // };
+            int ids = 5;
+            Author author = new Author();
+            author.Id = 5;
+            author.Name = "Saurabh@1234";
+            author.AuthorContact = new BookStore.Models.AuthorContact
+            {
+                AuthorId = 5,
+                ContactNumber = "9076578103",
+                Address = "Jainagar Post Gaura Jainagar Deoria"
+            };
+
+            author.BookAuthors = new List<BookAuthors>
+            {
+                new BookAuthors
+                {
+                    AuthorId = 2,
+                    BookId = 2
+                },
+                new BookAuthors
+                {
+                    AuthorId = 4,
+                    BookId = 4
+                }
+            };
+
 
             if (author == null)
             {
                 return BadRequest("Author is null.");
             }
 
-            var  authorToUpdate = _dataRepository.Get(id);
+            var authorToUpdate = _dataRepository.Get(ids);
             if (authorToUpdate == null)
             {
                 return NotFound("The Employee record couldn't be found.");

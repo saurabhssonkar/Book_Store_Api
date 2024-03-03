@@ -15,9 +15,9 @@
     public class Author_CustomModel
     {
         public int id { get; set; }
-    public long Id { get; internal set; }
+    // public long Id { get; internal set; }
     public string Name { get; set; }
-        public AuthorContact AuthorContact { get; set; }
+        public AuthorContact AuthorContact { get; set; } // Specify the full namespace
         public List<BookAuthor> BookAuthors { get; set; }
     }
 
