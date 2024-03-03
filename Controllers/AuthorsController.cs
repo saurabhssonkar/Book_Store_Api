@@ -76,27 +76,27 @@ namespace BookStore.Controllers
                 Console.WriteLine($"Author Id: {authors}");
                 Console.WriteLine($"Author Id: {id}");
 
-            int ids = 5;
+            int ids = 6;
             Author author = new Author();
-            author.Id = 5;
-            author.Name = "Saurabh@1234";
+            author.Id = 6;
+            author.Name = "Testing Change Author Name";
             author.AuthorContact = new BookStore.Models.AuthorContact
             {
-                AuthorId = 5,
-                ContactNumber = "9076578103",
-                Address = "Jainagar Post Gaura Jainagar Deoria"
+                AuthorId = 6,
+                ContactNumber = "0000000",
+                Address = "Noida Sector 62"
             };
 
             author.BookAuthors = new List<BookAuthors>
             {
                 new BookAuthors
                 {
-                    AuthorId = 2,
-                    BookId = 2
+                    AuthorId = 4,
+                    BookId = 4
                 },
                 new BookAuthors
                 {
-                    AuthorId = 4,
+                    AuthorId = 3,
                     BookId = 4
                 }
             };
