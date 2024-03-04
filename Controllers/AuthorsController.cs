@@ -71,35 +71,35 @@ namespace BookStore.Controllers
         //   public IActionResult Put(int id, [FromBody] Author author)
         // [FromBody] Author_CustomModel author
         // 
-        public IActionResult Put( int id,[FromBody] Author_CustomModel authors)
+        public IActionResult Put( int id,[FromBody] Author_CustomModel author)
         {
-                Console.WriteLine($"Author Id: {authors}");
+                Console.WriteLine($"Author Id: {author}");
                 Console.WriteLine($"Author Id: {id}");
 
-            int ids = 6;
-            Author author = new Author();
-            author.Id = 6;
-            author.Name = "Testing Change Author Name";
-            author.AuthorContact = new BookStore.Models.AuthorContact
-            {
-                AuthorId = 6,
-                ContactNumber = "0000000",
-                Address = "Noida Sector 62"
-            };
+            // int ids = 6;
+            // Author author = new Author();
+            // author.Id = 6;
+            // author.Name = "Testing Change Author Name";
+            // author.AuthorContact = new BookStore.Models.AuthorContact
+            // {
+            //     AuthorId = 6,
+            //     ContactNumber = "0000000",
+            //     Address = "Noida Sector 62"
+            // };
 
-            author.BookAuthors = new List<BookAuthors>
-            {
-                new BookAuthors
-                {
-                    AuthorId = 4,
-                    BookId = 4
-                },
-                new BookAuthors
-                {
-                    AuthorId = 3,
-                    BookId = 4
-                }
-            };
+            // author.BookAuthors = new List<BookAuthors>
+            // {
+            //     new BookAuthors
+            //     {
+            //         AuthorId = 4,
+            //         BookId = 4
+            //     },
+            //     new BookAuthors
+            //     {
+            //         AuthorId = 3,
+            //         BookId = 4
+            //     }
+            // };
 
 
             if (author == null)
@@ -107,7 +107,7 @@ namespace BookStore.Controllers
                 return BadRequest("Author is null.");
             }
 
-            var authorToUpdate = _dataRepository.Get(ids);
+            var authorToUpdate = _dataRepository.Get(id);
             if (authorToUpdate == null)
             {
                 return NotFound("The Employee record couldn't be found.");
@@ -118,7 +118,7 @@ namespace BookStore.Controllers
                 return BadRequest();
             }
 
-            _dataRepository.Update(authorToUpdate, author);
+            _dataRepository.Update1(authorToUpdate, author);
             return NoContent();
         }
     }

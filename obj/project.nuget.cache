@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VzEj4AC7Tpbfvi7cWfnhNqRS+g3KlKCCGknJ9jcFxAANTXhJMi1JS4AEP67UhGyZUrDTvnOLUPRSHW5kmftQ8A==",
+  "dgSpecHash": "l+VFCexke0JMh222l8pXIznF+aUrNMR0AZsyDJzxtV7gVt7tQPLzAAZy48U687DNEBAb4hJ/l2j0nslkTYN4hQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj",
+  "projectFilePath": "C:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Perfect\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
     "C:\\Users\\Perfect\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

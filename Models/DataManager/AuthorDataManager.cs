@@ -92,5 +92,34 @@ namespace BookStore.Models.DataManager
         {
             throw new System.NotImplementedException();
         }
+
+        public void Update1(Author entityToUpdate, Author_CustomModel entity)
+        {
+            entityToUpdate = _bookStoreContext.Author
+                .Include(a => a.BookAuthors)
+                .Include(a => a.AuthorContact)
+                .Single(b => b.Id == entityToUpdate.Id);
+
+            entityToUpdate.Name = entity.Name;
+
+            entityToUpdate.AuthorContact.Address = entity.AuthorContact.Address;
+            entityToUpdate.AuthorContact.ContactNumber = entity.AuthorContact.ContactNumber;
+
+            var deletedBooks = entityToUpdate.BookAuthors.Except(entity.BookAuthors).ToList();
+            var addedBooks = entity.BookAuthors.Except(entityToUpdate.BookAuthors).ToList();
+
+            deletedBooks.ForEach(bookToDelete =>
+                entityToUpdate.BookAuthors.Remove(
+                    entityToUpdate.BookAuthors
+                        .First(b => b.BookId == bookToDelete.BookId)));
+
+            foreach (var addedBook in addedBooks)
+            {
+                _bookStoreContext.Entry(addedBook).State = EntityState.Added;
+            }
+
+            _bookStoreContext.SaveChanges();
+        }
+
     }
 }

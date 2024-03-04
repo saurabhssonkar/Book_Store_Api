@@ -61,5 +61,11 @@ namespace BookStore.Models.DataManager
         {
             throw new System.NotImplementedException();
         }
+
+        public void Update1(Author authorToUpdate, Author_CustomModel author)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

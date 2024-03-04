@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj": {}
+    "C:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj": {
+    "C:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "C:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "c:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj",
+        "projectPath": "C:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\BookStore.csproj",
         "packagesPath": "C:\\Users\\Perfect\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\obj\\",
+        "outputPath": "C:\\Users\\Perfect\\Desktop\\bookapi\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Perfect\\AppData\\Roaming\\NuGet\\NuGet.Config"
