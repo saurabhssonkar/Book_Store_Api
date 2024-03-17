@@ -10,7 +10,8 @@ namespace BookStore.Models.Repository
         void Add(TEntity entity);
         void Update(TEntity entityToUpdate, TEntity entity);
         void Delete(TEntity entity);
-        void Update1(Author authorToUpdate, Author_CustomModel author);
+        // void Update(Author authorToUpdate, Author_CustomModel author);
+        // void Update1(Author authorToUpdate, Author_CustomModel author);
 
     }
 }

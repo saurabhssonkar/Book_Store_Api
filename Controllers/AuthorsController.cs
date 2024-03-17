@@ -70,36 +70,37 @@ namespace BookStore.Controllers
         [HttpPut("{id}")]
         //   public IActionResult Put(int id, [FromBody] Author author)
         // [FromBody] Author_CustomModel author
+        // int id,[FromBody] Author_CustomModel author
         // 
-        public IActionResult Put( int id,[FromBody] Author_CustomModel author)
+        public IActionResult Put( )
         {
-                Console.WriteLine($"Author Id: {author}");
-                Console.WriteLine($"Author Id: {id}");
+                // Console.WriteLine($"Author Id: {author}");
+                // Console.WriteLine($"Author Id: {id}");
 
-            // int ids = 6;
-            // Author author = new Author();
-            // author.Id = 6;
-            // author.Name = "Testing Change Author Name";
-            // author.AuthorContact = new BookStore.Models.AuthorContact
-            // {
-            //     AuthorId = 6,
-            //     ContactNumber = "0000000",
-            //     Address = "Noida Sector 62"
-            // };
+            int id = 6;
+            Author author = new Author();
+            author.Id = 6;
+            author.Name = "Testing Change Author Name";
+            author.AuthorContact = new BookStore.Models.AuthorContact
+            {
+                AuthorId = 6,
+                ContactNumber = "0000000",
+                Address = "Noida Sector 62"
+            };
 
-            // author.BookAuthors = new List<BookAuthors>
-            // {
-            //     new BookAuthors
-            //     {
-            //         AuthorId = 4,
-            //         BookId = 4
-            //     },
-            //     new BookAuthors
-            //     {
-            //         AuthorId = 3,
-            //         BookId = 4
-            //     }
-            // };
+            author.BookAuthors = new List<BookAuthors>
+            {
+                new BookAuthors
+                {
+                    AuthorId = 4,
+                    BookId = 4
+                },
+                new BookAuthors
+                {
+                    AuthorId = 3,
+                    BookId = 4
+                }
+            };
 
 
             if (author == null)
@@ -118,7 +119,7 @@ namespace BookStore.Controllers
                 return BadRequest();
             }
 
-            _dataRepository.Update1(authorToUpdate, author);
+            _dataRepository.Update(authorToUpdate, author);
             return NoContent();
         }
     }
